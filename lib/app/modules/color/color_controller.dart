@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 part 'color_controller.g.dart';
@@ -15,6 +16,14 @@ abstract class _ColorControllerBase with Store {
 
   @observable
   double blue = 0;
+
+  @computed
+  Color get color => Color.fromRGBO(
+        red.toInt(),
+        green.toInt(),
+        blue.toInt(),
+        1,
+      );
 
   @action
   void changeRedValue(value) {

@@ -9,6 +9,13 @@ part of 'color_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ColorController on _ColorControllerBase, Store {
+  Computed<Color> _$colorComputed;
+
+  @override
+  Color get color => (_$colorComputed ??= Computed<Color>(() => super.color,
+          name: '_ColorControllerBase.color'))
+      .value;
+
   final _$redAtom = Atom(name: '_ColorControllerBase.red');
 
   @override
@@ -95,7 +102,8 @@ mixin _$ColorController on _ColorControllerBase, Store {
     return '''
 red: ${red},
 green: ${green},
-blue: ${blue}
+blue: ${blue},
+color: ${color}
     ''';
   }
 }

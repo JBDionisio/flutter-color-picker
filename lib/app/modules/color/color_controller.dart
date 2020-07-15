@@ -7,8 +7,6 @@ part 'color_controller.g.dart';
 class ColorController = _ColorControllerBase with _$ColorController;
 
 abstract class _ColorControllerBase with Store {
-  //RGB
-
   @observable
   double red = 0;
 

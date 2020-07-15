@@ -20,12 +20,6 @@ class ColorSlide extends StatefulWidget {
 
 class _ColorSlideState extends State<ColorSlide> {
   @override
-  void initState() {
-    // widget.colorType.index;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),

@@ -1,18 +1,17 @@
-import 'package:color_picker/app/modules/color/color_controller.dart';
 import 'package:flutter/material.dart';
 
 class ColorSlide extends StatefulWidget {
   final double value;
   final Function(double) onChanged;
-  final ColorController controller;
-  final ColorType colorType;
+  final Map color;
+  final String colorValue;
 
   const ColorSlide({
     Key key,
     @required this.value,
     @required this.onChanged,
-    @required this.controller,
-    @required this.colorType,
+    @required this.color,
+    @required this.colorValue,
   }) : super(key: key);
 
   @override
@@ -35,7 +34,10 @@ class _ColorSlideState extends State<ColorSlide> {
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          colors: [Colors.red, Colors.red[200]],
+          colors: [
+            widget.color['gradient_end'],
+            widget.color['gradient_start']
+          ],
         ),
       ),
       child: Container(
@@ -70,7 +72,13 @@ class _ColorSlideState extends State<ColorSlide> {
               ),
             ),
             Container(
-              child: Text(widget.controller.redInt),
+              child: Text(
+                widget.colorValue,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
             )
           ],
         ),
@@ -78,5 +86,3 @@ class _ColorSlideState extends State<ColorSlide> {
     );
   }
 }
-
-enum ColorType { red, green, blue }

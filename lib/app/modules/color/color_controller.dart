@@ -1,3 +1,4 @@
+import 'package:color_picker/app/shared/color_type.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -29,23 +30,39 @@ abstract class _ColorControllerBase with Store {
   String get redInt => red.toInt().toString();
 
   @computed
-  String get greenInt => red.toInt().toString();
+  String get greenInt => green.toInt().toString();
 
   @computed
-  String get blueInt => red.toInt().toString();
+  String get blueInt => blue.toInt().toString();
 
   @action
-  void changeRedValue(value) {
-    red = value;
-  }
+  void changeRedValue(value) => red = value;
 
   @action
-  void changeGreenValue(value) {
-    green = value;
-  }
+  void changeGreenValue(value) => green = value;
 
   @action
-  void changeBlueValue(value) {
-    blue = value;
-  }
+  void changeBlueValue(value) => blue = value;
+
+  Map getColorType(ColorType colorType) => list[colorType.index];
+
+  List<Map> list = [
+    //red
+    {
+      "gradient_start": Colors.red[200],
+      "gradient_end": Colors.red,
+    },
+
+    //green
+    {
+      "gradient_start": Colors.green[200],
+      "gradient_end": Colors.green,
+    },
+
+    //blue
+    {
+      "gradient_start": Colors.blue[200],
+      "gradient_end": Colors.blue,
+    }
+  ];
 }

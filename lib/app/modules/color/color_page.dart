@@ -1,4 +1,5 @@
 import 'package:color_picker/app/modules/color/components/color_slider.dart';
+import 'package:color_picker/app/shared/color_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -34,7 +35,8 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
                 onChanged: (value) {
                   controller.changeRedValue(value);
                 },
-                controller: controller,
+                color: controller.getColorType(ColorType.red),
+                colorValue: controller.redInt,
               ),
             ),
             Observer(
@@ -43,7 +45,8 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
                 onChanged: (value) {
                   controller.changeGreenValue(value);
                 },
-                controller: controller,
+                color: controller.getColorType(ColorType.green),
+                colorValue: controller.greenInt,
               ),
             ),
             Observer(
@@ -52,7 +55,8 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
                 onChanged: (value) {
                   controller.changeBlueValue(value);
                 },
-                controller: controller,
+                color: controller.getColorType(ColorType.blue),
+                colorValue: controller.blueInt,
               ),
             ),
             Observer(

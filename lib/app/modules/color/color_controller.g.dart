@@ -15,6 +15,27 @@ mixin _$ColorController on _ColorControllerBase, Store {
   Color get color => (_$colorComputed ??= Computed<Color>(() => super.color,
           name: '_ColorControllerBase.color'))
       .value;
+  Computed<String> _$redIntComputed;
+
+  @override
+  String get redInt =>
+      (_$redIntComputed ??= Computed<String>(() => super.redInt,
+              name: '_ColorControllerBase.redInt'))
+          .value;
+  Computed<String> _$greenIntComputed;
+
+  @override
+  String get greenInt =>
+      (_$greenIntComputed ??= Computed<String>(() => super.greenInt,
+              name: '_ColorControllerBase.greenInt'))
+          .value;
+  Computed<String> _$blueIntComputed;
+
+  @override
+  String get blueInt =>
+      (_$blueIntComputed ??= Computed<String>(() => super.blueInt,
+              name: '_ColorControllerBase.blueInt'))
+          .value;
 
   final _$redAtom = Atom(name: '_ColorControllerBase.red');
 
@@ -103,7 +124,10 @@ mixin _$ColorController on _ColorControllerBase, Store {
 red: ${red},
 green: ${green},
 blue: ${blue},
-color: ${color}
+color: ${color},
+redInt: ${redInt},
+greenInt: ${greenInt},
+blueInt: ${blueInt}
     ''';
   }
 }

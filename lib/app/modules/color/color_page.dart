@@ -14,8 +14,6 @@ class ColorPage extends StatefulWidget {
 }
 
 class _ColorPageState extends ModularState<ColorPage, ColorController> {
-  //use 'controller' variable to access controller
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,27 +29,30 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
             Text("FLUTTER - COLOR PICKER"),
             Text("Choose your color:"),
             Observer(
-              builder: (_) => ColorSlider(
+              builder: (_) => ColorSlide(
                 value: controller.red,
                 onChanged: (value) {
                   controller.changeRedValue(value);
                 },
+                controller: controller,
               ),
             ),
             Observer(
-              builder: (_) => ColorSlider(
+              builder: (_) => ColorSlide(
                 value: controller.green,
                 onChanged: (value) {
                   controller.changeGreenValue(value);
                 },
+                controller: controller,
               ),
             ),
             Observer(
-              builder: (_) => ColorSlider(
+              builder: (_) => ColorSlide(
                 value: controller.blue,
                 onChanged: (value) {
                   controller.changeBlueValue(value);
                 },
+                controller: controller,
               ),
             ),
             Observer(

@@ -25,6 +25,15 @@ abstract class _ColorControllerBase with Store {
         1,
       );
 
+  @computed
+  String get redInt => red.toInt().toString();
+
+  @computed
+  String get greenInt => red.toInt().toString();
+
+  @computed
+  String get blueInt => red.toInt().toString();
+
   @action
   void changeRedValue(value) {
     red = value;

@@ -1,4 +1,5 @@
 import 'package:color_picker/app/modules/color/components/color_slider.dart';
+import 'package:color_picker/app/modules/color/components/fav_dialog.dart';
 import 'package:color_picker/app/shared/color_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -60,7 +61,12 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
             builder: (_) => Container(
               child: InkWell(
                 borderRadius: BorderRadius.circular(60),
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => FavDialog(),
+                  );
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     color: controller.color,
@@ -78,6 +84,7 @@ class _ColorPageState extends ModularState<ColorPage, ColorController> {
               ),
             ),
           ),
+          SizedBox(height: 40)
         ],
       ),
     );
